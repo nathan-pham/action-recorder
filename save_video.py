@@ -27,8 +27,8 @@ def save_video():
             if not new_action.equals(actions[-1]):
                 actions.append(new_action)
         
-        return action
-
+        return 
+        
     # record mouse actions
     mouse_listener = pynput.mouse.Listener(
         on_move=action_factory("mouse_move"),
