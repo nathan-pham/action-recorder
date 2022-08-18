@@ -19,7 +19,7 @@ def save_video():
     # create new actions if they differ from the previous one
     def action_factory(action_name: str, exclude_indices: List[int] = []):
         def action(*props):
-            props = [prop[0] if isinstance(prop, tuple) else str(prop) for prop in props]
+            props = [prop.char if isinstance(prop, pynput.keyboard.KeyCode) else str(prop) for prop in props]
             for i in exclude_indices:
                 props.pop(i)
 
@@ -57,6 +57,8 @@ def save_video():
     return dispose
 
 # record a 5 second video
+print("started recording")
 dispose = save_video()
-time.sleep(5)
+time.sleep(10)
 dispose()
+print("saved video")
